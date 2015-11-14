@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../paper-badged-icon-button.html">
+  </head>
+  <body>
+
+    <!-- You can use the document as a place to set up your fixtures. -->
+    <paper-badged-icon-button icon="shopping-cart" alt="shopping-cart" label="1" start-elevated></paper-badged-icon-button>
+
+    <script>
+      var myEl = document.querySelector('paper-badged-icon-button');
+
+      suite('<paper-badged-icon-button>', function() {
+
+        test('defines the "icon" property', function() {
+          assert.equal(myEl.icon, 'shopping-cart');
+        });
+
+        test('defines the "alt" property', function() {
+          assert.equal(myEl.querySelector('iron-icon').getAttribute('alt'), 'shopping-cart');
+        });
+
+        test('defines the "label" property', function() {
+          assert.equal(myEl.label, 1);
+        });
+
+        test('defines the "startElevated" property', function() {
+          assert.equal(myEl._elevation, 1);
+        });
+
+      });
+    </script>
+
+  </body>
+</html>
