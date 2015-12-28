@@ -8,30 +8,36 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../button-behaviors/button-behavior.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
 <link rel="import" href="../paper-badge/paper-badge.html">
 <link rel="import" href="../paper-ripple/paper-ripple.html">
 
 <!--
-An icon-button with a badge, a lá material design.
+An icon-button/paper-fab with a badge, a lá material design.
 
-'paper-badged-icon-button' is a button made of an iron-icon combined with an paper-badge.
+'paper-badged-button' is a button made of an iron-icon or paper-fab combined with an paper-badge.
 
 Example:
 
-    <paper-badged-icon-button icon="shopping-cart" label="1"></paper-badged-icon-button>
+    <paper-badged-button icon="shopping-cart" label="1"></paper-badged-button>
+
+### Dispalying a fab:
+
+    <paper-badged-button icon="shopping-cart" label="1"></paper-badged-button>
 
 @group Paper Elements
-@element paper-badged-icon-button
+@element paper-badged-button
 @demo demo/index.html
 @hero hero.svg
 -->
 
-<dom-module id="paper-badged-icon-button">
+<dom-module id="paper-badged-button">
   <template>
     <style>
       :host {
@@ -44,6 +50,10 @@ Example:
       :host([disabled]) {
         background-color: #888;
         pointer-events: none;
+      }
+      :host([active]), :host([pressed]) {
+        background-color: #3367D6;
+        box-shadow: inset 0 3px 5px rgba(0,0,0,.2);
       }
       paper-material {
         display: inline-block;
@@ -66,15 +76,20 @@ Example:
       }
     </style>
     <paper-material elevation="[[_elevation]]">
-      <iron-icon id="ironIcon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
-      <paper-badge for="ironIcon" label="[[label]]" hidden$="[[!badgeLabel]]"></paper-badge>
-      <paper-ripple></paper-ripple>
+      <paper-badge for="ironIcon" label="[[label]]" hidden$="[[!label]]"></paper-badge>
+      <template is="dom-if" if="[[!fab]]">
+        <iron-icon id="ironIcon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
+        <paper-ripple></paper-ripple>
+      </template>
+      <template is="dom-if" if="[[fab]]">
+        <paper-fab src="[[src]]" icon="[[icon]]" mini$="[[mini]]"></paper-fab>
+      </template>
     </paper-material>
   </template>
 </dom-module>
 <script>
   Polymer({
-    is: 'paper-badged-icon-button',
+    is: 'paper-badged-button',
     behaviors: [Polymer.buttonBehavior],
 
     properties: {
@@ -113,6 +128,22 @@ Example:
       * Show the button elevated on load
       */
       startElevated: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * when true, displays an paper-fab
+       */
+      fab: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * When true a mini fab is shown.
+       */
+      mini: {
         type: Boolean,
         value: false
       }

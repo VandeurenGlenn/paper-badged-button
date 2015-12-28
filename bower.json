@@ -1,5 +1,5 @@
 {
-  "name": "paper-badged-icon-button",
+  "name": "paper-badged-button",
   "version": "1.0.0",
   "authors": [
     "Glenn Vandeuren <vandeurenglenn@gmail.com>"
@@ -13,9 +13,9 @@
     "icon",
     "button"
   ],
-  "main": "paper-badged-icon-button.html",
+  "main": "paper-badged-button.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/vandeurenglenn/paper-badged-icon-button/",
+  "homepage": "https://github.com/vandeurenglenn/paper-badged-button/",
   "ignore": [
     "/.*",
     "/test/"
@@ -25,7 +25,8 @@
     "iron-icon": "PolymerElements/iron-icon#~1.0.7",
     "button-behaviors": "BasicElements/button-behaviors#~1.1.1",
     "paper-badge": "PolymerElements/paper-badge#~1.0.4",
-    "paper-ripple": "PolymerElements/paper-ripple#~1.0.4"
+    "paper-ripple": "PolymerElements/paper-ripple#~1.0.4",
+    "paper-fab": "PolymerElements/paper-fab#~1.1.2"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

@@ -17,17 +17,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../paper-badged-icon-button.html">
+    <link rel="import" href="../paper-badged-button.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
-    <paper-badged-icon-button icon="shopping-cart" alt="shopping-cart" label="1" start-elevated></paper-badged-icon-button>
+    <paper-badged-button icon="shopping-cart" alt="shopping-cart" label="1" start-elevated></paper-badged-button>
 
     <script>
-      var myEl = document.querySelector('paper-badged-icon-button');
+      var myEl = document.querySelector('paper-badged-button');
 
-      suite('<paper-badged-icon-button>', function() {
+      suite('<paper-badged-button>', function() {
 
         test('defines the "icon" property', function() {
           assert.equal(myEl.icon, 'shopping-cart');
