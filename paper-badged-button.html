@@ -76,13 +76,13 @@ Example:
       }
     </style>
     <paper-material elevation="[[_elevation]]">
-      <paper-badge for="ironIcon" label="[[label]]" hidden$="[[!label]]"></paper-badge>
+      <paper-badge for="[[_computeFor(fab)]]" label="[[label]]" hidden$="[[!label]]"></paper-badge>
       <template is="dom-if" if="[[!fab]]">
         <iron-icon id="ironIcon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
         <paper-ripple></paper-ripple>
       </template>
       <template is="dom-if" if="[[fab]]">
-        <paper-fab src="[[src]]" icon="[[icon]]" mini$="[[mini]]"></paper-fab>
+        <paper-fab id="paperFab" src="[[src]]" icon="[[icon]]" mini$="[[mini]]"></paper-fab>
       </template>
     </paper-material>
   </template>
@@ -153,6 +153,13 @@ Example:
       if(this.startElevated) {
         this._elevation = 1;
       }
+    },
+
+    _computeFor: function(fab) {
+      if (fab) {
+        return 'paperFab';
+      }
+      return 'ironIcon';
     },
 
     /**
