@@ -1,10 +1,10 @@
 {
   "name": "paper-badged-button",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "authors": [
     "Glenn Vandeuren <vandeurenglenn@gmail.com>"
   ],
-  "description": "An icon-button with a badge, a lá material design.",
+  "description": "An icon-button/paper-fab with a badge, a lá material design.",
   "keywords": [
     "web-component",
     "web-components",
